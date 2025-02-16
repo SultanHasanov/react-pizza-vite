@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import LogoSvg from "../assets/img/pizza-logo.svg";
 import Search from "./Search/Search";
 
-const Header = () => {
+const Header = ({ isPizzaDetailsPage }) => {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const isMounted = useRef(false)
 
@@ -31,7 +31,9 @@ const Header = () => {
             </div>
           </div>
         </Link>
-        <Search />
+        {!isPizzaDetailsPage && (
+        <Search />   )}
+        {!isPizzaDetailsPage && (
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
             <span>{totalPrice} ₽</span>
@@ -68,6 +70,7 @@ const Header = () => {
             <span>{totalCount}</span>
           </Link>
         </div>
+           )}
       </div>
     </div>
   );

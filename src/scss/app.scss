@@ -697,3 +697,27 @@ body {
     text-align: center;
   }
  }
+
+ .pizza-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+}
+
+@media (max-width: 412px) {
+  .pizza-details {
+    flex-direction: column;
+  }
+  
+}
+.pizza-details img {
+  max-width: 150px; /* ограничиваем ширину изображения */
+  width: 100%;
+  height: auto;
+}
+
+.pizza-details h2,
+.pizza-details p {
+  margin: 0;
+}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addItem, minusItem } from "../../features/cartSlice";
+import { Link, useNavigate } from "react-router-dom";
 
 const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
   const typeNames = ["тонкое", "традиционное"];
@@ -15,6 +16,9 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
   const addedCount = cartItem ? cartItem.count : 0;
   const [text, setText] = useState("Хватит");
   const categoryId = useSelector((state) => state.filter.categoryId);
+
+  const navigate = useNavigate();
+
   const onClickAdd = () => {
     if (addedCount >= 5) {
       setText(text);
@@ -55,16 +59,21 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
         className="pizza-block"
         style={{ opacity: categoryId === 5 ? 0.5 : 1 }}
       >
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        <Link to={`/pizza/${id}`}>
+          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        </Link>
         <h4 className="pizza-block__title">{title}</h4>
         <div className="pizza-block__selector">
           <ul>
             {types.map((el, index) => {
               return (
                 <li
-                style={{
-                  cursor: addedCount >= 5 || categoryId === 5 ? "not-allowed" : "pointer",
-                }}
+                  style={{
+                    cursor:
+                      addedCount >= 5 || categoryId === 5
+                        ? "not-allowed"
+                        : "pointer",
+                  }}
                   key={index}
                   onClick={() => setActiveType(el)}
                   className={activeType === el ? "active" : ""}
@@ -78,9 +87,12 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
             {sizes.map((el, index) => {
               return (
                 <li
-                style={{
-                  cursor: addedCount >= 5 || categoryId === 5 ? "not-allowed" : "pointer",
-                }}
+                  style={{
+                    cursor:
+                      addedCount >= 5 || categoryId === 5
+                        ? "not-allowed"
+                        : "pointer",
+                  }}
                   key={index}
                   onClick={() => setActiveSize(index)}
                   className={activeSize === index ? "active" : ""}
@@ -99,7 +111,10 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
               onClick={onClickAdd}
               className="button button--outline button--add"
               style={{
-                cursor: addedCount >= 5 || categoryId === 5 ? "not-allowed" : "pointer",
+                cursor:
+                  addedCount >= 5 || categoryId === 5
+                    ? "not-allowed"
+                    : "pointer",
               }}
             >
               <svg
