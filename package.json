@@ -17,6 +17,7 @@
     "bootstrap": "^5.3.3",
     "debounce": "^2.2.0",
     "lodash.debounce": "^4.0.8",
+    "notistack": "^3.0.2",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-content-loader": "^7.0.2",
@@ -27,6 +28,7 @@
     "react-router-dom": "^7.1.5",
     "react-toastify": "^11.0.3",
     "sass": "1.55.0",
+    "sonner": "^1.7.4",
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {

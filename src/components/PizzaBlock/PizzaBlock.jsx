@@ -32,16 +32,16 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
       size: sizes[activeSize],
     };
     dispatch(addItem(item));
-    toast(`Добавлена. В корзине ${addedCount + 1} пицц`, {
-      position: "top-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    // toast(`Добавлена. В корзине ${addedCount + 1} пицц`, {
+    //   position: "top-left",
+    //   autoClose: 2000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
   };
 
   const onClickMinus = () => {

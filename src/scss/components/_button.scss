@@ -146,3 +146,18 @@
     }
   }
 }
+
+@media (max-width: 413px) {
+  .button {
+    &--add{
+      min-width: 20px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    span{
+      display: none;
+    }
+  }
+}
